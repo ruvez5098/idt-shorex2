@@ -1,0 +1,8 @@
+{
+  "name": "shorex",
+  "description": "A high-tech deep sea monitoring and telemetry dashboard with real-time detection and geospatial mapping.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

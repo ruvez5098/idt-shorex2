@@ -1,0 +1,12 @@
+names:
+- plastic_bottle
+- plastic_bag
+- plastic_cup
+- plastic_wrapper
+- plastic_container
+- plastic_straw
+- plastic_film
+nc: 7
+test: D:\extracted\idt project\ai google\neptune-ai\dummy_dataset\images\test
+train: D:\extracted\idt project\ai google\neptune-ai\dummy_dataset\images\train
+val: D:\extracted\idt project\ai google\neptune-ai\dummy_dataset\images\val

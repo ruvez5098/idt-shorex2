@@ -1,0 +1,90 @@
+{
+  "history": [
+    {
+      "id": "1781201779503-4d7f14",
+      "timestamp": "2026-06-11T18:16:19.504Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781201751269-c51052",
+      "timestamp": "2026-06-11T18:15:51.269Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781174149185-06c39e",
+      "timestamp": "2026-06-11T10:35:49.185Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781174141574-296d8d",
+      "timestamp": "2026-06-11T10:35:41.574Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781174133810-4c3a2d",
+      "timestamp": "2026-06-11T10:35:33.810Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1780669216056-57e651",
+      "timestamp": "2026-06-05T14:20:16.056Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1780669192462-9f3326",
+      "timestamp": "2026-06-05T14:19:52.462Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1780669187875-303e40",
+      "timestamp": "2026-06-05T14:19:47.875Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1780669149255-ee1fad",
+      "timestamp": "2026-06-05T14:19:09.255Z",
+      "source": "webcam",
+      "totalDetections": 0,
+      "summary": "",
+      "detections": [],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    }
+  ],
+  "stats": {
+    "totalScans": 9,
+    "plasticsDetected": 0,
+    "accuracy": 0
+  }
+}

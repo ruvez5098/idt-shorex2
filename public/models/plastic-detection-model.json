@@ -1,0 +1,103 @@
+{
+  "format": "layers-model",
+  "generatedBy": "keras v2.11.0",
+  "convertedBy": "TensorFlow.js Converter",
+  "modelTopology": {
+    "keras_version": "2.11.0",
+    "backend": "tensorflow",
+    "model_config": {
+      "class_name": "Sequential",
+      "config": [
+        {
+          "class_name": "InputLayer",
+          "config": {
+            "batch_input_shape": [
+              null,
+              416,
+              416,
+              3
+            ],
+            "dtype": "float32",
+            "sparse": false,
+            "name": "input_1"
+          }
+        },
+        {
+          "class_name": "AveragePooling2D",
+          "config": {
+            "name": "avg_pool",
+            "trainable": true,
+            "dtype": "float32",
+            "padding": "valid",
+            "data_format": "channels_last",
+            "pool_size": [
+              416,
+              416
+            ],
+            "strides": [
+              416,
+              416
+            ]
+          }
+        },
+        {
+          "class_name": "Flatten",
+          "config": {
+            "name": "flatten",
+            "trainable": true,
+            "dtype": "float32",
+            "data_format": "channels_last"
+          }
+        },
+        {
+          "class_name": "Dense",
+          "config": {
+            "name": "dense",
+            "trainable": true,
+            "dtype": "float32",
+            "units": 6,
+            "activation": "linear",
+            "use_bias": true,
+            "kernel_initializer": {
+              "class_name": "Zeros",
+              "config": {}
+            },
+            "bias_initializer": {
+              "class_name": "Zeros",
+              "config": {}
+            },
+            "kernel_regularizer": null,
+            "bias_regularizer": null,
+            "activity_regularizer": null,
+            "kernel_constraint": null,
+            "bias_constraint": null
+          }
+        }
+      ]
+    }
+  },
+  "weightsManifest": [
+    {
+      "paths": [
+        "group1-shard1of1.bin"
+      ],
+      "weights": [
+        {
+          "name": "dense/kernel",
+          "shape": [
+            3,
+            6
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "dense/bias",
+          "shape": [
+            6
+          ],
+          "dtype": "float32"
+        }
+      ]
+    }
+  ]
+}
