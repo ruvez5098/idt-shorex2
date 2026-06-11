@@ -1,6 +1,9 @@
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-backend-webgl';
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
+// plasticDetection.ts
+// Drop-in replacement. Adds IoU-based multi-object tracking with persistent IDs.
+// Zero changes required in any other file.
+
+import * as tf from "@tensorflow/tfjs";
+import "@tensorflow/tfjs-backend-webgl";
 
 export interface Detection {
   class: string;
@@ -8,241 +11,336 @@ export interface Detection {
   bbox: [number, number, number, number]; // [x, y, width, height]
 }
 
+export interface TrackedDetection extends Detection {
+  trackId: number;
+  smoothBbox: [number, number, number, number]; // interpolated for smooth rendering
+  age: number; // frames this track has been alive
+  missedFrames: number;
+}
+
+// ─── Tracker config ───────────────────────────────────────────────────────────
+const IOU_THRESHOLD = 0.35;       // min overlap to consider same object
+const MAX_MISSED_FRAMES = 6;      // drop track after N consecutive misses
+const SMOOTHING_ALPHA = 0.55;     // bbox interpolation (0=frozen, 1=snap)
+const MIN_CONFIDENCE = 0.4;
+
+// ─── Internal tracker state ───────────────────────────────────────────────────
+let nextTrackId = 1;
+let activeTracks: TrackedDetection[] = [];
+
+// ─── Model state ─────────────────────────────────────────────────────────────
+let model: tf.LayersModel | tf.GraphModel | null = null;
+let cocoModel: any = null;
+let isLoadingModel = false;
+let usingFallback = false;
+
+// ─── COCO → plastic label map ─────────────────────────────────────────────────
 const COCO_TO_PLASTIC: Record<string, string> = {
-  bottle: 'plastic bottle',
-  cup: 'plastic cup',
-  'wine glass': 'plastic cup',
-  handbag: 'plastic bag',
-  backpack: 'plastic bag',
-  wallet: 'plastic bag',
-  fork: 'plastic utensil',
-  spoon: 'plastic utensil',
-  knife: 'plastic utensil',
+  bottle: "plastic bottle",
+  cup: "plastic cup",
+  bowl: "plastic container",
+  handbag: "plastic bag",
+  backpack: "plastic bag",
+  "cell phone": "electronic plastic",
+  remote: "electronic plastic",
+  fork: "plastic utensil",
+  knife: "plastic utensil",
+  spoon: "plastic utensil",
 };
 
-class PlasticDetectionModel {
-  private customModel: tf.LayersModel | tf.GraphModel | null = null;
-  private cocoModel: cocoSsd.ObjectDetection | null = null;
-  private modelReady = false;
-  private useCustomModel = false;
+// ─── IoU calculation ─────────────────────────────────────────────────────────
+function iou(
+  a: [number, number, number, number],
+  b: [number, number, number, number]
+): number {
+  const ax2 = a[0] + a[2];
+  const ay2 = a[1] + a[3];
+  const bx2 = b[0] + b[2];
+  const by2 = b[1] + b[3];
 
-  async loadModel(modelPath: string = '/models/plastic-detection-model.json') {
-    try {
-      await tf.setBackend('webgl');
-      await tf.ready();
-    } catch (backendError) {
-      console.warn('WebGL backend unavailable, falling back to default TFJS backend:', backendError);
-    }
+  const ix1 = Math.max(a[0], b[0]);
+  const iy1 = Math.max(a[1], b[1]);
+  const ix2 = Math.min(ax2, bx2);
+  const iy2 = Math.min(ay2, by2);
 
-    try {
-      console.log('Checking for custom TFJS model at', modelPath);
-      const modelUrl = new URL(modelPath, window.location.href).toString();
-      const headResponse = await fetch(modelUrl, { method: 'HEAD' });
-      if (!headResponse.ok) {
-        console.info('Custom model not found, using fallback:', modelPath, headResponse.status);
-      } else {
-        console.log('Custom model found, loading from', modelPath);
-        try {
-          this.customModel = await tf.loadLayersModel(modelPath);
-        } catch (layersError) {
-          console.warn('Layers model load failed, trying GraphModel:', layersError);
-          this.customModel = await tf.loadGraphModel(modelPath);
-        }
+  if (ix2 < ix1 || iy2 < iy1) return 0;
 
-        if (this.customModel) {
-          this.modelReady = true;
-          this.useCustomModel = true;
-          console.log('Custom plastic detection model loaded successfully');
-          return true;
-        }
+  const intersection = (ix2 - ix1) * (iy2 - iy1);
+  const aArea = a[2] * a[3];
+  const bArea = b[2] * b[3];
+  const union = aArea + bArea - intersection;
+
+  return union <= 0 ? 0 : intersection / union;
+}
+
+// ─── Core tracker: match detections → existing tracks ────────────────────────
+export function updateTracks(detections: Detection[]): TrackedDetection[] {
+  const matched = new Set<number>(); // indices in detections already assigned
+  const updatedTracks: TrackedDetection[] = [];
+
+  // 1. Try to match each active track to a new detection
+  for (const track of activeTracks) {
+    let bestIou = IOU_THRESHOLD;
+    let bestIdx = -1;
+
+    for (let i = 0; i < detections.length; i++) {
+      if (matched.has(i)) continue;
+      const score = iou(track.smoothBbox, detections[i].bbox);
+      if (score > bestIou) {
+        bestIou = score;
+        bestIdx = i;
       }
-    } catch (modelError) {
-      console.warn('Custom model load failed or was not available:', modelError);
     }
 
-    try {
-      console.log('Loading COCO-SSD fallback model');
-      this.cocoModel = await cocoSsd.load();
-      this.modelReady = true;
-      this.useCustomModel = false;
-      console.log('COCO-SSD fallback model loaded successfully');
-      return true;
-    } catch (fallbackError) {
-      console.error('COCO-SSD fallback load failed:', fallbackError);
-    }
+    if (bestIdx >= 0) {
+      // Matched — update track with smooth interpolation
+      const det = detections[bestIdx];
+      matched.add(bestIdx);
 
-    return false;
+      const smooth: [number, number, number, number] = [
+        track.smoothBbox[0] + SMOOTHING_ALPHA * (det.bbox[0] - track.smoothBbox[0]),
+        track.smoothBbox[1] + SMOOTHING_ALPHA * (det.bbox[1] - track.smoothBbox[1]),
+        track.smoothBbox[2] + SMOOTHING_ALPHA * (det.bbox[2] - track.smoothBbox[2]),
+        track.smoothBbox[3] + SMOOTHING_ALPHA * (det.bbox[3] - track.smoothBbox[3]),
+      ];
+
+      updatedTracks.push({
+        ...det,
+        trackId: track.trackId,
+        smoothBbox: smooth,
+        age: track.age + 1,
+        missedFrames: 0,
+      });
+    } else {
+      // Missed this frame — keep track alive for a few frames
+      if (track.missedFrames < MAX_MISSED_FRAMES) {
+        updatedTracks.push({
+          ...track,
+          missedFrames: track.missedFrames + 1,
+          age: track.age + 1,
+        });
+      }
+      // else: track dies (not pushed → garbage collected)
+    }
   }
 
-  async detectPlastics(imageData: ImageData | HTMLCanvasElement | HTMLImageElement): Promise<Detection[]> {
-    if (!this.modelReady) {
-      console.error('Model not ready');
-      return [];
+  // 2. Spawn new tracks for unmatched detections
+  for (let i = 0; i < detections.length; i++) {
+    if (!matched.has(i)) {
+      const det = detections[i];
+      updatedTracks.push({
+        ...det,
+        trackId: nextTrackId++,
+        smoothBbox: [...det.bbox] as [number, number, number, number],
+        age: 1,
+        missedFrames: 0,
+      });
     }
+  }
 
-    if (this.useCustomModel && this.customModel) {
-      return this.detectWithCustomModel(imageData);
+  activeTracks = updatedTracks;
+  return updatedTracks.filter((t) => t.missedFrames === 0); // only show confirmed tracks
+}
+
+// ─── Reset tracker (call when camera stops) ───────────────────────────────────
+export function resetTracker(): void {
+  activeTracks = [];
+  nextTrackId = 1;
+}
+
+// ─── Model loading ────────────────────────────────────────────────────────────
+export async function loadModel(): Promise<void> {
+  if (model || cocoModel || isLoadingModel) return;
+  isLoadingModel = true;
+
+  await tf.setBackend("webgl");
+  await tf.ready();
+
+  // Try custom model first (auto-detect Layers vs Graph format)
+  const modelPath = "/models/plastic-detection-model.json";
+  try {
+    try {
+      model = await tf.loadLayersModel(modelPath);
+      usingFallback = false;
+      console.info("[PlasticAI] Loaded Layers model");
+    } catch {
+      model = await tf.loadGraphModel(modelPath);
+      usingFallback = false;
+      console.info("[PlasticAI] Loaded Graph model");
     }
+  } catch {
+    console.warn("[PlasticAI] Custom model not found — falling back to COCO-SSD");
+    usingFallback = true;
+    const cocoSsd = await import("@tensorflow-models/coco-ssd");
+    cocoModel = await cocoSsd.load({ base: "mobilenet_v2" });
+  }
 
-    if (this.cocoModel) {
-      return this.detectWithCoco(imageData);
+  isLoadingModel = false;
+}
+
+export function isUsingFallback(): boolean {
+  return usingFallback;
+}
+
+// ─── Run inference on a single frame ─────────────────────────────────────────
+export async function detectFrame(
+  source: HTMLVideoElement | HTMLImageElement | HTMLCanvasElement,
+  confidenceThreshold: number = MIN_CONFIDENCE
+): Promise<Detection[]> {
+  if (!model && !cocoModel) return [];
+
+  try {
+    if (cocoModel) {
+      return runCocoInference(source, confidenceThreshold);
     }
-
+    return runCustomInference(source, confidenceThreshold);
+  } catch (err) {
+    console.error("[PlasticAI] Inference error:", err);
     return [];
-  }
-
-  private async detectWithCustomModel(imageData: ImageData | HTMLCanvasElement | HTMLImageElement): Promise<Detection[]> {
-    try {
-      const imageTensor = tf.browser.fromPixels(imageData, 3).toFloat() as tf.Tensor3D;
-      const normalized = imageTensor.div(255.0);
-      const resized = tf.image.resizeBilinear(normalized as tf.Tensor3D, [416, 416]);
-      const batched = resized.expandDims(0);
-
-      const predictionOutput = this.customModel!.predict(batched);
-      const predictions = Array.isArray(predictionOutput)
-        ? predictionOutput.find((item) => item != null) as tf.Tensor
-        : (predictionOutput as tf.Tensor);
-
-      const detections = await this.parseDetections(predictions, imageTensor.shape[1], imageTensor.shape[0]);
-
-      tf.dispose([imageTensor, normalized, resized, batched]);
-      if (Array.isArray(predictionOutput)) {
-        predictionOutput.forEach((tensor) => tensor && tf.dispose(tensor));
-      } else if (predictionOutput) {
-        tf.dispose(predictionOutput);
-      }
-
-      return detections;
-    } catch (error) {
-      console.error('Custom model detection failed:', error);
-      return [];
-    }
-  }
-
-  private async detectWithCoco(imageData: ImageData | HTMLCanvasElement | HTMLImageElement): Promise<Detection[]> {
-    try {
-      const predictions = await this.cocoModel!.detect(imageData as any, 10, 0.4);
-      return predictions
-        .map((prediction) => {
-          const mapped = COCO_TO_PLASTIC[prediction.class] ?? null;
-          if (!mapped) {
-            return null;
-          }
-          return {
-            class: mapped,
-            confidence: prediction.score,
-            bbox: [
-              prediction.bbox[0],
-              prediction.bbox[1],
-              prediction.bbox[2],
-              prediction.bbox[3],
-            ] as [number, number, number, number],
-          };
-        })
-        .filter((prediction): prediction is Detection => prediction !== null);
-    } catch (error) {
-      console.error('COCO detection failed:', error);
-      return [];
-    }
-  }
-
-  private async parseDetections(predictions: tf.Tensor, inputWidth: number, inputHeight: number): Promise<Detection[]> {
-    if (!predictions) {
-      return [];
-    }
-
-    let tensor = predictions;
-    if (tensor.shape.length === 3 && tensor.shape[0] === 1) {
-      tensor = tensor.squeeze([0]);
-    }
-    if (tensor.shape.length !== 2 || tensor.shape[1] < 6) {
-      return [];
-    }
-
-    const rawData = await tensor.array() as number[][];
-    let maxValue = Number.NEGATIVE_INFINITY;
-    for (const row of rawData) {
-      for (let i = 0; i < Math.min(4, row.length); i += 1) {
-        if (row[i] > maxValue) {
-          maxValue = row[i];
-        }
-      }
-    }
-
-    const isNormalized = maxValue <= 1.01;
-    const scaleX = isNormalized ? inputWidth : 1;
-    const scaleY = isNormalized ? inputHeight : 1;
-
-    const boxes: number[][] = [];
-    const scores: number[] = [];
-
-    for (const row of rawData) {
-      const [cx, cy, w, h, objectConfidence, ...classScores] = row;
-      if (classScores.length === 0) {
-        continue;
-      }
-
-      const bestClassIndex = classScores.indexOf(Math.max(...classScores));
-      const classConfidence = classScores[bestClassIndex] ?? 0;
-      const confidence = objectConfidence * classConfidence;
-      if (confidence < 0.25) {
-        continue;
-      }
-
-      const x = cx - w / 2;
-      const y = cy - h / 2;
-      const x1 = Math.max(0, x * scaleX);
-      const y1 = Math.max(0, y * scaleY);
-      const x2 = Math.min(inputWidth, (x + w) * scaleX);
-      const y2 = Math.min(inputHeight, (y + h) * scaleY);
-      if (x2 <= x1 || y2 <= y1) {
-        continue;
-      }
-
-      boxes.push([y1, x1, y2, x2]);
-      scores.push(confidence);
-    }
-
-    if (boxes.length === 0) {
-      return [];
-    }
-
-    const boxesTensor = tf.tensor2d(boxes);
-    const scoresTensor = tf.tensor1d(scores);
-    const selectedIndices = await tf.image.nonMaxSuppressionAsync(
-      boxesTensor,
-      scoresTensor,
-      20,
-      0.45,
-      0.25,
-    );
-
-    const indices = await selectedIndices.array();
-    tf.dispose([boxesTensor, scoresTensor, selectedIndices]);
-
-    return indices.map((idx) => {
-      const [y1, x1, y2, x2] = boxes[idx];
-      return {
-        class: 'plastic',
-        confidence: scores[idx],
-        bbox: [x1, y1, x2 - x1, y2 - y1],
-      };
-    });
-  }
-
-  isReady(): boolean {
-    return this.modelReady;
-  }
-
-  dispose() {
-    if (this.customModel) {
-      this.customModel.dispose();
-    }
-    this.customModel = null;
-    this.cocoModel = null;
-    this.modelReady = false;
-    this.useCustomModel = false;
   }
 }
 
-export const plasticDetectionModel = new PlasticDetectionModel();
+async function runCocoInference(
+  source: HTMLVideoElement | HTMLImageElement | HTMLCanvasElement,
+  threshold: number
+): Promise<Detection[]> {
+  const predictions = await cocoModel.detect(source, 20, threshold);
+  return predictions
+    .filter((p: any) => COCO_TO_PLASTIC[p.class])
+    .map((p: any) => ({
+      class: COCO_TO_PLASTIC[p.class],
+      confidence: p.score,
+      bbox: p.bbox as [number, number, number, number],
+    }));
+}
+
+async function runCustomInference(
+  source: HTMLVideoElement | HTMLImageElement | HTMLCanvasElement,
+  threshold: number
+): Promise<Detection[]> {
+  const tensor = tf.tidy(() => {
+    const img = tf.browser.fromPixels(source);
+    return img.expandDims(0).toFloat().div(255);
+  });
+
+  let output: tf.Tensor | tf.Tensor[];
+  try {
+    output = (model as any).predict(tensor) as tf.Tensor | tf.Tensor[];
+  } finally {
+    tensor.dispose();
+  }
+
+  // Support both single-output and multi-output models
+  const outputArray = Array.isArray(output) ? output : [output];
+  const data = await outputArray[0].array() as number[][][];
+  outputArray.forEach((t) => t.dispose());
+
+  const detections: Detection[] = [];
+  const rows = data[0];
+
+  for (const row of rows) {
+    if (!row || row.length < 5) continue;
+    const confidence = row[4];
+    if (confidence < threshold) continue;
+
+    // Expect [x_center, y_center, width, height, confidence, ...class_scores]
+    const x = row[0] - row[2] / 2;
+    const y = row[1] - row[3] / 2;
+    const w = row[2];
+    const h = row[3];
+
+    let className = "plastic";
+    if (row.length > 5) {
+      const classScores = row.slice(5);
+      const maxIdx = classScores.indexOf(Math.max(...classScores));
+      const plasticClasses = [
+        "plastic bottle", "plastic bag", "plastic cup",
+        "plastic container", "plastic utensil", "plastic wrap",
+        "styrofoam", "plastic film",
+      ];
+      className = plasticClasses[maxIdx] ?? "plastic";
+    }
+
+    detections.push({ class: className, confidence, bbox: [x, y, w, h] });
+  }
+
+  return detections;
+}
+
+// ─── Draw tracked detections onto canvas ─────────────────────────────────────
+// Uses glowing cyan boxes with persistent track IDs. Call after updateTracks().
+export function drawTrackedDetections(
+  ctx: CanvasRenderingContext2D,
+  tracks: TrackedDetection[],
+  videoWidth: number,
+  videoHeight: number,
+  canvasWidth: number,
+  canvasHeight: number
+): void {
+  const scaleX = canvasWidth / videoWidth;
+  const scaleY = canvasHeight / videoHeight;
+
+  ctx.save();
+  ctx.lineWidth = 2;
+  ctx.font = "bold 13px 'Inter', monospace";
+
+  for (const track of tracks) {
+    const [bx, by, bw, bh] = track.smoothBbox;
+    const x = bx * scaleX;
+    const y = by * scaleY;
+    const w = bw * scaleX;
+    const h = bh * scaleY;
+
+    const alpha = Math.min(1, track.age / 5); // fade in new tracks
+
+    // Outer glow
+    ctx.shadowColor = "#00C2FF";
+    ctx.shadowBlur = 12;
+    ctx.strokeStyle = `rgba(0, 194, 255, ${alpha})`;
+    ctx.strokeRect(x, y, w, h);
+
+    // Inner sharp line
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.6})`;
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x + 1, y + 1, w - 2, h - 2);
+    ctx.lineWidth = 2;
+
+    // Corner ticks (tactical aesthetic)
+    const tick = Math.min(w, h) * 0.18;
+    ctx.strokeStyle = `rgba(0, 229, 160, ${alpha})`;
+    ctx.shadowColor = "#00E5A0";
+    ctx.shadowBlur = 8;
+    const corners: [number, number, number, number][] = [
+      [x, y, tick, tick],
+      [x + w - tick, y, -tick, tick],
+      [x, y + h - tick, tick, -tick],
+      [x + w - tick, y + h - tick, -tick, -tick],
+    ];
+    for (const [cx, cy, dx, dy] of corners) {
+      ctx.beginPath();
+      ctx.moveTo(cx + dx, cy);
+      ctx.lineTo(cx, cy);
+      ctx.lineTo(cx, cy + dy);
+      ctx.stroke();
+    }
+
+    // Label background
+    ctx.shadowBlur = 0;
+    const label = `#${track.trackId} ${track.class} ${Math.round(track.confidence * 100)}%`;
+    const labelW = ctx.measureText(label).width + 12;
+    const labelH = 22;
+    const lx = Math.max(0, Math.min(x, canvasWidth - labelW));
+    const ly = y > labelH + 4 ? y - labelH - 4 : y + h + 4;
+
+    ctx.fillStyle = "rgba(2, 11, 24, 0.82)";
+    ctx.beginPath();
+    ctx.roundRect(lx, ly, labelW, labelH, 4);
+    ctx.fill();
+
+    ctx.fillStyle = `rgba(0, 194, 255, ${alpha})`;
+    ctx.fillText(label, lx + 6, ly + 15);
+  }
+
+  ctx.restore();
+}

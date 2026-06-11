@@ -41,7 +41,7 @@ import {
   LockKeyhole,
   Save
 } from 'lucide-react';
-import { PlasticDetector } from './PlasticDetector';
+import PlasticDetector from './PlasticDetector';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   AreaChart, 
