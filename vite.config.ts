@@ -16,11 +16,25 @@ export default defineConfig(({mode}) => {
       },
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      watch: process.env.DISABLE_HMR === 'true' ? null : {
+        // Exclude runtime data files — changes to these must never trigger a page reload
+        ignored: [
+          '**/detection_store.json',
+          '**/users_store.json',
+          '**/runs/**',
+          '**/.git/**',
+          '**/node_modules/**',
+          '**/dist/**',
+        ],
+      },
+      // Proxy all /api calls from Vite (port 3000) → Express (port 5000)
+      proxy: {
+        '/api': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
+        },
+      },
     },
   };
 });

@@ -1,6 +1,1166 @@
 {
   "history": [
     {
+      "id": "1781321144016-9d5bc4",
+      "timestamp": "2026-06-13T03:25:44.016Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (89%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.8932105302810669,
+          "bbox": [
+            35.62896728515625,
+            173.95240187644958,
+            513.2503128051758,
+            303.46646904945374
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781321138428-7e0edf",
+      "timestamp": "2026-06-13T03:25:38.428Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (80%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7951759696006775,
+          "bbox": [
+            111.78056716918945,
+            78.075692653656,
+            513.0061149597168,
+            316.34395837783813
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781286610998-878375",
+      "timestamp": "2026-06-12T17:50:10.998Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (77%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7696775794029236,
+          "bbox": [
+            368.9036560058594,
+            173.67391347885132,
+            458.6138916015625,
+            522.3049092292786
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781286547991-c79cce",
+      "timestamp": "2026-06-12T17:49:07.991Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (68%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6806362271308899,
+          "bbox": [
+            891.7325592041016,
+            521.3692045211792,
+            199.46884155273438,
+            187.26985931396484
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781286536703-950ae0",
+      "timestamp": "2026-06-12T17:48:56.703Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (44%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.4391660690307617,
+          "bbox": [
+            866.5708923339844,
+            505.3225564956665,
+            173.02581787109375,
+            154.5563507080078
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781286506224-59d4dd",
+      "timestamp": "2026-06-12T17:48:26.224Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (60%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6029069423675537,
+          "bbox": [
+            849.4874572753906,
+            435.9600305557251,
+            200.147705078125,
+            230.90472221374512
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284291470-decc48",
+      "timestamp": "2026-06-12T17:11:31.470Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Mixed / General Debris (97%)",
+      "detections": [
+        {
+          "class": "Mixed / General Debris",
+          "confidence": 0.9681376814842224,
+          "bbox": [
+            329.15985107421875,
+            238.48093271255493,
+            189.96604919433594,
+            177.55728006362915
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284275170-49aa11",
+      "timestamp": "2026-06-12T17:11:15.170Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Mixed / General Debris (94%)",
+      "detections": [
+        {
+          "class": "Mixed / General Debris",
+          "confidence": 0.9441577196121216,
+          "bbox": [
+            13.99404525756836,
+            337.03636407852173,
+            397.16623306274414,
+            342.6165175437927
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284270688-868b51",
+      "timestamp": "2026-06-12T17:11:10.688Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Mixed / General Debris (97%)",
+      "detections": [
+        {
+          "class": "Mixed / General Debris",
+          "confidence": 0.9737484455108643,
+          "bbox": [
+            98.4149169921875,
+            164.74817633628845,
+            362.4959945678711,
+            287.184602022171
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284244243-236f41",
+      "timestamp": "2026-06-12T17:10:44.243Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (97%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.9720262289047241,
+          "bbox": [
+            226.93256378173828,
+            206.02869272232056,
+            542.2979354858398,
+            284.33207273483276
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284240385-20153b",
+      "timestamp": "2026-06-12T17:10:40.385Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (98%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.9844641089439392,
+          "bbox": [
+            214.26963806152344,
+            208.3798098564148,
+            519.9669647216797,
+            278.19908380508423
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284236037-a3878e",
+      "timestamp": "2026-06-12T17:10:36.037Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (95%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.9502851366996765,
+          "bbox": [
+            76.85909271240234,
+            284.12781715393066,
+            604.8862075805664,
+            287.6103973388672
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284226548-48b2ef",
+      "timestamp": "2026-06-12T17:10:26.548Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (94%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.9368153214454651,
+          "bbox": [
+            385.9625244140625,
+            336.22798919677734,
+            224.2462158203125,
+            171.8338966369629
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284210211-d7e158",
+      "timestamp": "2026-06-12T17:10:10.211Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (69%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6911681294441223,
+          "bbox": [
+            119.01233673095703,
+            262.1725845336914,
+            384.91519927978516,
+            241.8069362640381
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284206318-6d4e89",
+      "timestamp": "2026-06-12T17:10:06.318Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (74%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7357881665229797,
+          "bbox": [
+            314.1300964355469,
+            324.23216342926025,
+            229.1284942626953,
+            158.76643180847168
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284201786-a97d25",
+      "timestamp": "2026-06-12T17:10:01.786Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (71%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7126641273498535,
+          "bbox": [
+            196.99081420898438,
+            385.1806640625,
+            218.09005737304688,
+            175.17382621765137
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284194109-506d55",
+      "timestamp": "2026-06-12T17:09:54.109Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (86%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.8600407838821411,
+          "bbox": [
+            33.21928024291992,
+            314.50801849365234,
+            412.11755752563477,
+            224.83838081359863
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284189419-4c15ac",
+      "timestamp": "2026-06-12T17:09:49.419Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (45%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.4454575777053833,
+          "bbox": [
+            49.15977478027344,
+            304.9697184562683,
+            400.4648971557617,
+            223.8260293006897
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284185301-bde010",
+      "timestamp": "2026-06-12T17:09:45.301Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (56%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.5642043352127075,
+          "bbox": [
+            49.53044891357422,
+            313.11129570007324,
+            397.93628692626953,
+            235.5271339416504
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284180805-81aa29",
+      "timestamp": "2026-06-12T17:09:40.805Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (68%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6839310526847839,
+          "bbox": [
+            37.09501266479492,
+            285.69886207580566,
+            393.8604927062988,
+            293.92727851867676
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284176900-02b2ca",
+      "timestamp": "2026-06-12T17:09:36.900Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (68%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6784994006156921,
+          "bbox": [
+            55.02912521362305,
+            307.7880120277405,
+            432.8280830383301,
+            308.72318029403687
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284172387-0a5305",
+      "timestamp": "2026-06-12T17:09:32.388Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (88%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.880523145198822,
+          "bbox": [
+            59.28741455078125,
+            301.2911009788513,
+            393.40667724609375,
+            271.0069012641907
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781284168452-6b75f4",
+      "timestamp": "2026-06-12T17:09:28.452Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (67%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6696740388870239,
+          "bbox": [
+            15.104331970214844,
+            287.60432481765747,
+            451.1797332763672,
+            294.1184878349304
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283925326-eb8cdc",
+      "timestamp": "2026-06-12T17:05:25.326Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Plastic Container / Tub (43%)",
+      "detections": [
+        {
+          "class": "Plastic Container / Tub",
+          "confidence": 0.4334787428379059,
+          "bbox": [
+            582.743034362793,
+            367.08648204803467,
+            398.8449478149414,
+            195.28301239013672
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283920716-e3fc37",
+      "timestamp": "2026-06-12T17:05:20.716Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (42%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.42029300332069397,
+          "bbox": [
+            595.2039337158203,
+            378.23803424835205,
+            372.943115234375,
+            183.98649215698242
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283895167-6a38c3",
+      "timestamp": "2026-06-12T17:04:55.167Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (61%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.6126547455787659,
+          "bbox": [
+            504.9871826171875,
+            351.0406494140625,
+            305.6141662597656,
+            160.7992458343506
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283889682-3281e0",
+      "timestamp": "2026-06-12T17:04:49.682Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (41%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.40715664625167847,
+          "bbox": [
+            783.4516906738281,
+            180.76408624649048,
+            297.97576904296875,
+            465.33474683761597
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283880369-f70d2f",
+      "timestamp": "2026-06-12T17:04:40.369Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (49%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.4850173592567444,
+          "bbox": [
+            530.0350189208984,
+            150.1766037940979,
+            400.6138610839844,
+            206.33264064788818
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781283871370-ee459e",
+      "timestamp": "2026-06-12T17:04:31.370Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (41%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.41229745745658875,
+          "bbox": [
+            771.9096374511719,
+            311.2041163444519,
+            259.42779541015625,
+            315.36866426467896
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282304673-8a642e",
+      "timestamp": "2026-06-12T16:38:24.673Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (88%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.8822216391563416,
+          "bbox": [
+            319.53147888183594,
+            263.8711738586426,
+            225.75912475585938,
+            263.8400173187256
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282300164-9b058d",
+      "timestamp": "2026-06-12T16:38:20.164Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (82%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.8214291334152222,
+          "bbox": [
+            331.80259704589844,
+            273.12509536743164,
+            236.10671997070312,
+            210.35213470458984
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282296270-1e4e74",
+      "timestamp": "2026-06-12T16:38:16.270Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (92%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.9174343943595886,
+          "bbox": [
+            310.4768180847168,
+            267.04811096191406,
+            228.16553115844727,
+            198.9770793914795
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282291962-7f723f",
+      "timestamp": "2026-06-12T16:38:11.962Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (75%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.7528256177902222,
+          "bbox": [
+            256.18396759033203,
+            368.5378360748291,
+            263.16490173339844,
+            241.2436294555664
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282287867-1f70cb",
+      "timestamp": "2026-06-12T16:38:07.867Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (85%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.8468298316001892,
+          "bbox": [
+            265.6556701660156,
+            357.5759696960449,
+            245.7158660888672,
+            202.12672233581543
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282283564-a1ab9a",
+      "timestamp": "2026-06-12T16:38:03.564Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (79%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.7924090027809143,
+          "bbox": [
+            259.803409576416,
+            287.9271984100342,
+            194.24245834350586,
+            318.52678298950195
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282279675-6c3c7f",
+      "timestamp": "2026-06-12T16:37:59.675Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (92%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.9175987839698792,
+          "bbox": [
+            160.58683395385742,
+            303.1884527206421,
+            262.4839973449707,
+            304.7761058807373
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282275365-83c6a6",
+      "timestamp": "2026-06-12T16:37:55.365Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (86%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.8560007810592651,
+          "bbox": [
+            349.3037796020508,
+            273.26244592666626,
+            215.53512573242188,
+            200.56835889816284
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282271468-748f3f",
+      "timestamp": "2026-06-12T16:37:51.468Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (40%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.4048888385295868,
+          "bbox": [
+            60.01340866088867,
+            143.60568523406982,
+            297.58081436157227,
+            377.56190299987793
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282266964-93c54a",
+      "timestamp": "2026-06-12T16:37:46.964Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (52%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.5243894457817078,
+          "bbox": [
+            265.21812438964844,
+            147.860848903656,
+            236.0723114013672,
+            370.66216707229614
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282234069-7ba935",
+      "timestamp": "2026-06-12T16:37:14.069Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (53%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.5251495838165283,
+          "bbox": [
+            151.83920860290527,
+            172.87914276123047,
+            218.0855655670166,
+            456.67943000793457
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282229759-e9ae25",
+      "timestamp": "2026-06-12T16:37:09.759Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (64%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.6405744552612305,
+          "bbox": [
+            119.5370101928711,
+            153.36772441864014,
+            242.4905776977539,
+            472.6216220855713
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282226068-759d67",
+      "timestamp": "2026-06-12T16:37:06.068Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (78%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7815072536468506,
+          "bbox": [
+            162.076416015625,
+            205.7607936859131,
+            262.4672317504883,
+            391.6600227355957
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282217562-1d70ce",
+      "timestamp": "2026-06-12T16:36:57.562Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (57%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.5715743899345398,
+          "bbox": [
+            98.59905242919922,
+            212.35555171966553,
+            508.3363342285156,
+            496.3190460205078
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781282212229-ed1e5e",
+      "timestamp": "2026-06-12T16:36:52.229Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (50%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.5038994550704956,
+          "bbox": [
+            432.07862854003906,
+            300.7251763343811,
+            234.61517333984375,
+            182.46786832809448
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280952096-73a481",
+      "timestamp": "2026-06-12T16:15:52.096Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Plastic Bag / Film (96%)",
+      "detections": [
+        {
+          "class": "Plastic Bag / Film",
+          "confidence": 0.9594950675964355,
+          "bbox": [
+            581.1815643310547,
+            153.85029673576355,
+            264.47235107421875,
+            336.2341368198395
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280938597-4ba67a",
+      "timestamp": "2026-06-12T16:15:38.597Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (98%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.9760462641716003,
+          "bbox": [
+            339.74578857421875,
+            67.56673336029053,
+            262.29156494140625,
+            314.62324619293213
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280934700-df7d18",
+      "timestamp": "2026-06-12T16:15:34.700Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (95%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.9521684646606445,
+          "bbox": [
+            293.3738708496094,
+            130.19862055778503,
+            252.7515411376953,
+            318.75295758247375
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280915108-80ba6f",
+      "timestamp": "2026-06-12T16:15:15.108Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (71%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.7139375805854797,
+          "bbox": [
+            568.0213928222656,
+            360.237021446228,
+            252.61871337890625,
+            155.83110809326172
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280911216-7b5189",
+      "timestamp": "2026-06-12T16:15:11.216Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (50%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.49951842427253723,
+          "bbox": [
+            669.5307159423828,
+            350.23263931274414,
+            233.47152709960938,
+            158.89148712158203
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280904112-24c783",
+      "timestamp": "2026-06-12T16:15:04.112Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (57%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.5732858777046204,
+          "bbox": [
+            84.38377380371094,
+            321.9915962219238,
+            605.6951141357422,
+            392.6882743835449
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280897133-d3dfe9",
+      "timestamp": "2026-06-12T16:14:57.133Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (40%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.40063726902008057,
+          "bbox": [
+            899.4432830810547,
+            319.05176639556885,
+            165.47119140625,
+            211.95476531982422
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280892188-323468",
+      "timestamp": "2026-06-12T16:14:52.188Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (72%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.7241525650024414,
+          "bbox": [
+            844.2697143554688,
+            332.3979663848877,
+            175.7794189453125,
+            186.6134262084961
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280887627-154fb1",
+      "timestamp": "2026-06-12T16:14:47.627Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (58%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.5790650844573975,
+          "bbox": [
+            50.54821014404297,
+            206.10885858535767,
+            359.5370864868164,
+            414.30660009384155
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280881679-05a826",
+      "timestamp": "2026-06-12T16:14:41.679Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (80%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.8038599491119385,
+          "bbox": [
+            307.58501052856445,
+            309.0608811378479,
+            250.1881217956543,
+            203.73791456222534
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280691966-ccb2ec",
+      "timestamp": "2026-06-12T16:11:31.966Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (94%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.9414876699447632,
+          "bbox": [
+            588.4195709228516,
+            56.05145215988159,
+            215.14480590820312,
+            189.00282382965088
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781280672540-9284a1",
+      "timestamp": "2026-06-12T16:11:12.540Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Tyre / Rubber Debris (88%)",
+      "detections": [
+        {
+          "class": "Tyre / Rubber Debris",
+          "confidence": 0.880707859992981,
+          "bbox": [
+            154.4971466064453,
+            148.31218957901,
+            410.69862365722656,
+            481.97903394699097
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781256393192-cc59d9",
+      "timestamp": "2026-06-12T09:26:33.192Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (56%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.5607871413230896,
+          "bbox": [
+            126.90738677978516,
+            133.03168773651123,
+            366.6872024536133,
+            464.44092750549316
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "id": "1781256365707-bc7ab3",
+      "timestamp": "2026-06-12T09:26:05.707Z",
+      "source": "live-camera",
+      "totalDetections": 1,
+      "summary": "Electronic Waste (42%)",
+      "detections": [
+        {
+          "class": "Electronic Waste",
+          "confidence": 0.42196768522262573,
+          "bbox": [
+            714.1941070556641,
+            228.99709224700928,
+            296.8499755859375,
+            304.1060256958008
+          ]
+        }
+      ],
+      "imageBase64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAA"
+    },
+    {
       "id": "1781201779503-4d7f14",
       "timestamp": "2026-06-11T18:16:19.504Z",
       "source": "webcam",
@@ -83,8 +1243,8 @@
     }
   ],
   "stats": {
-    "totalScans": 9,
-    "plasticsDetected": 0,
-    "accuracy": 0
+    "totalScans": 67,
+    "plasticsDetected": 58,
+    "accuracy": 0.87
   }
 }

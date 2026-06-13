@@ -7,7 +7,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 5000;
 const STORE_FILE = path.join(__dirname, 'detection_store.json');
+const USERS_FILE = path.join(__dirname, 'users_store.json');
 const MAX_HISTORY_ITEMS = 100;
+
+// Admin credentials — env vars with secure defaults for development only
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'shorex@gmail.com';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'shorex0528';
 
 const defaultStore = {
   history: [],
@@ -17,6 +22,19 @@ const defaultStore = {
     accuracy: 0,
   },
 };
+
+const defaultUsersStore: { users: UserRecord[] } = {
+  users: [],
+};
+
+interface UserRecord {
+  email: string;
+  displayName: string;
+  createdAt: string;
+  lastLogin: string;
+  loginCount: number;
+  scanCount: number;
+}
 
 const readStore = async () => {
   try {
@@ -39,6 +57,27 @@ const ensureStore = async () => {
   }
 };
 
+const readUsersStore = async (): Promise<{ users: UserRecord[] }> => {
+  try {
+    const raw = await fs.readFile(USERS_FILE, 'utf-8');
+    return JSON.parse(raw);
+  } catch {
+    return { users: [] };
+  }
+};
+
+const writeUsersStore = async (store: { users: UserRecord[] }) => {
+  await fs.writeFile(USERS_FILE, JSON.stringify(store, null, 2), 'utf-8');
+};
+
+const ensureUsersStore = async () => {
+  try {
+    await fs.access(USERS_FILE);
+  } catch {
+    await writeUsersStore(defaultUsersStore);
+  }
+};
+
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use((req, res, next) => {
@@ -55,6 +94,81 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Admin auth endpoint
+app.post('/api/admin/login', (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password required' });
+  }
+  const normalizedEmail = email.trim().toLowerCase();
+  if (normalizedEmail === ADMIN_EMAIL.toLowerCase() && password === ADMIN_PASSWORD) {
+    return res.json({ success: true, role: 'admin' });
+  }
+  return res.status(401).json({ error: 'Invalid admin credentials' });
+});
+
+// Register/track user
+app.post('/api/users/register', async (req, res) => {
+  try {
+    const { email, displayName } = req.body;
+    if (!email) return res.status(400).json({ error: 'Email required' });
+
+    const normalized = email.trim().toLowerCase();
+    const store = await readUsersStore();
+    const existing = store.users.find((u) => u.email === normalized);
+
+    if (existing) {
+      existing.lastLogin = new Date().toISOString();
+      existing.loginCount = (existing.loginCount || 0) + 1;
+    } else {
+      store.users.push({
+        email: normalized,
+        displayName: displayName || normalized.split('@')[0],
+        createdAt: new Date().toISOString(),
+        lastLogin: new Date().toISOString(),
+        loginCount: 1,
+        scanCount: 0,
+      });
+    }
+
+    await writeUsersStore(store);
+    res.json({ success: true });
+  } catch (error) {
+    console.error('User register failed:', error);
+    res.status(500).json({ error: 'Failed to register user' });
+  }
+});
+
+// Admin: get all users
+app.get('/api/admin/users', async (req, res) => {
+  // Simple header-based auth for admin API
+  const adminKey = req.headers['x-admin-key'];
+  if (adminKey !== ADMIN_PASSWORD) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  try {
+    const store = await readUsersStore();
+    res.json(store.users);
+  } catch (error) {
+    console.error('Users read failed:', error);
+    res.status(500).json({ error: 'Unable to read users' });
+  }
+});
+
+// Admin: get full detection history
+app.get('/api/admin/history', async (req, res) => {
+  const adminKey = req.headers['x-admin-key'];
+  if (adminKey !== ADMIN_PASSWORD) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  try {
+    const store = await readStore();
+    res.json(store);
+  } catch (error) {
+    res.status(500).json({ error: 'Unable to read history' });
+  }
 });
 
 app.get('/api/history', async (req, res) => {
@@ -107,6 +221,17 @@ app.post('/api/detect', async (req, res) => {
       : 0;
 
     await writeStore(store);
+
+    // Update user scan count if email provided
+    if (req.body.userEmail) {
+      const usersStore = await readUsersStore();
+      const user = usersStore.users.find((u) => u.email === req.body.userEmail);
+      if (user) {
+        user.scanCount = (user.scanCount || 0) + 1;
+        await writeUsersStore(usersStore);
+      }
+    }
+
     res.json({ item: record, stats: store.stats });
   } catch (error) {
     console.error('Detection save failed:', error);
@@ -139,27 +264,33 @@ const startServer = async (port: number) => {
   });
 };
 
+const findFreePort = async (initialPort: number): Promise<number> => {
+  let port = initialPort;
+  while (port < initialPort + 20) {
+    try {
+      await startServer(port);
+      return port;
+    } catch (error: any) {
+      if (error?.code === 'EADDRINUSE') {
+        port += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+  throw new Error(`Unable to find a free port between ${initialPort} and ${initialPort + 19}`);
+};
+
 ensureStore().then(async () => {
+  await ensureUsersStore();
   try {
-    const activePort = await startServer(Number(PORT));
+    const activePort = await findFreePort(Number(PORT));
     console.log(`Server running on port ${activePort}`);
     console.log(`Health check: http://localhost:${activePort}/api/health`);
-  } catch (error: any) {
-    if (error?.code === 'EADDRINUSE') {
-      const fallbackPort = Number(PORT) + 1;
-      console.warn(`Port ${PORT} is in use. Trying fallback port ${fallbackPort}...`);
-      try {
-        const activePort = await startServer(fallbackPort);
-        console.log(`Server running on fallback port ${activePort}`);
-        console.log(`Health check: http://localhost:${activePort}/api/health`);
-      } catch (fallbackError) {
-        console.error('Fallback port failed:', fallbackError);
-        process.exit(1);
-      }
-    } else {
-      console.error('Failed to start server:', error);
-      process.exit(1);
-    }
+    console.log(`Admin email: ${ADMIN_EMAIL}`);
+  } catch (error) {
+    console.error('Failed to find an available port:', error);
+    process.exit(1);
   }
 }).catch((error) => {
   console.error('Failed to initialize store:', error);
