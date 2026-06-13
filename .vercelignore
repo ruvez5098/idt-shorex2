@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+runs/
+dummy_dataset/
+dummy_dataset_debug/
+dummy_dataset_debug2/
+dummy_dataset_export_test/
+exported_cli_test/
+exported_test/
+exported_test2/
+*.pt
+*.onnx
+*.pyc
+__pycache__/
+detection_store.json
+users_store.json
