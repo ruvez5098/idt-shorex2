@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: neptune-ai-shorex
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ADMIN_EMAIL
+        value: shorex@gmail.com
+      - key: ADMIN_PASSWORD
+        value: shorex0528
